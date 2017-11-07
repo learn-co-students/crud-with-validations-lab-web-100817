@@ -1,0 +1,11 @@
+<h1>Songs on Songs</h1>
+<tbody><% @songs.each do |song| %>
+    <tr>
+      <td>
+        <h3><%= song.title %></h3>
+      </td>
+      <td>
+        <a href="<%= song_path(song)%>">Take Me To Flavortown</a>
+      </td>
+    </tr>
+  <% end %></tbody>
