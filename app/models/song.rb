@@ -3,7 +3,8 @@ class Song < ActiveRecord::Base
   validates_presence_of :genre
   validates_presence_of :artist_name
   validates_inclusion_of :released, in: [true, false]
-  validate :rel_year
+  validates_inclusion_of :release_year, in: (1700..Time.now.year).to_a, if: :released
+  # validate :rel_year
   validates_uniqueness_of :title, scope: [:release_year, :artist_name]
   # validates_uniqueness_of :title, scope: :artist_id
   def rel_year
@@ -16,8 +17,5 @@ class Song < ActiveRecord::Base
     end
   end
 
-  def doubles
-    self.artist
-  end
 
 end
