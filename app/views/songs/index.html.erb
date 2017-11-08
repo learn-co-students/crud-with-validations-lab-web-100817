@@ -7,6 +7,7 @@
     <th>Released Year</th>
     <th>Artist Name</th>
     <th>Genre</th>
+    <th>Action</th>
   </tr>
 
   <tbody>
@@ -17,6 +18,7 @@
         <td><%=song.release_year%></td>
         <td><%=song.artist_name%></td>
         <td><%=song.genre%></td>
+        <td><%= button_to 'Delete', song_path(song), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
